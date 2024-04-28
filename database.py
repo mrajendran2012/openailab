@@ -1,14 +1,17 @@
+import pymongo
+
 class Database:
-    def __init__(self):
+    def __init__(self, database, collection):
         # Initialize your database connection here
-        pass
+        self.database = database 
+        self.collection = collection 
+        self.client = pymongo.MongoClient("mongodb://localhost:27017/")
 
-    def add_provider(self, username, password, email):
-        # Implement the logic to add a provider to the database
-        # using the provided username and email
-        pass
-
-    def add_consumer(self, username, password, email):
-        # Implement the logic to add a consumer to the database
-        # using the provided username and email
-        pass
+    def connect(self):
+        # Implement the logic to connect to the MongoDB database
+        db = self.client[self.database]
+        return db 
+    
+    def close(self):
+        self.database.close()
+        

@@ -1,4 +1,5 @@
-# Consumer Component Skeleton Code
+# Consumer Component
+import database
 
 class Consumer:
     def __init__(self, username, password, email):
@@ -13,7 +14,6 @@ class Consumer:
         # You can add the consumer to the database with the given username, password, and email
         # For example:
         database.add_consumer(self.username, self.password, self.email)        # Code to register a new consumer
-        pass
 
     def login(self):
         # Code to log in an existing consumer

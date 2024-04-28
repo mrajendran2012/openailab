@@ -13,7 +13,7 @@ class Provider:
         # Assuming you have a database or some storage mechanism to store the provider information
         # You can add the provider to the database with the given username, password, and email
         # For example:
-        database.add_provider(self.username, self.password, self.email)
+        self.add_provider(self.username, self.password, self.email)
 
     def login(self):
         # Code to log in an existing provider
@@ -38,3 +38,20 @@ class Provider:
     def cancel_appointment(self, appointment_id):
         # Code to cancel an appointment
         pass
+
+    def add_provider(self, username, password, email):
+        # Implement the logic to add a provider to the database
+        # using the provided username and email
+        # move this to settings.py
+        db="apptdb"
+        coll="provider"
+        _provider = database.Database(db, coll).connect()
+        # create code to insert one json object into mongodb collection with the attributes username, password and email
+        prid = "test-provider-id-1"
+        _provider.insert_one({
+            "pid": prid,
+            "username": username, 
+            "password": password,
+            "email": email
+        })
+
