@@ -1,3 +1,6 @@
-'fastapi[all]' 
-'pymongo[srv]' 
+#'fastapi[all]' 
+#'pymongo[srv]' 
+fastapi
+pymongo
 python-dotenv
+uvicorn
